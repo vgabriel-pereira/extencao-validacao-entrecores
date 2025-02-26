@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  width: 300px;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 20px;
+  color: #1a237e;
+  margin-bottom: 15px;
+}
+
+#status {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#status.active {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+}
+
+#status.inactive {
+  background-color: #ffcdd2;
+  color: #c62828;
+}
