@@ -1,5 +1,5 @@
 function validarCPF(cpf) {
-    cpf = cpf.replace(/\D/g, '');
+    cpf = cpf.replace(/\D/g, ''); // Remove pontuação
     if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
 
     let soma = 0;
@@ -14,9 +14,8 @@ function validarCPF(cpf) {
     return resto === parseInt(cpf.charAt(10));
 }
 
-// Função para validar CNPJ
 function validarCNPJ(cnpj) {
-    cnpj = cnpj.replace(/\D/g, '');
+    cnpj = cnpj.replace(/\D/g, ''); // Remove pontuação
     if (cnpj.length !== 14 || /^(\d)\1+$/.test(cnpj)) return false;
 
     const calcularDigito = (base, pesos) => {
@@ -34,7 +33,6 @@ function validarCNPJ(cnpj) {
 
 // Função para exibir alerta
 function exibirAlerta(mensagem) {
-    // Verifica se já existe um alerta para evitar duplicação
     if (document.getElementById('alertaValidador')) return;
 
     const overlay = document.createElement('div');
@@ -79,13 +77,20 @@ document.getElementById('btnConsultar')?.addEventListener('click', (e) => {
 
     if (!valor) return;
 
+    // Remove pontuação para facilitar a verificação
+    const valorSemPontuacao = valor.replace(/\D/g, '');
+
+    // Verifica se o valor é CPF ou CNPJ
     if (document.getElementById('rdCpf')?.checked) {
-        if (valor.length <= 11 && !validarCPF(valor)) {
+        if (valorSemPontuacao.length === 11 && !validarCPF(valor)) {
             e.preventDefault();
             exibirAlerta('CPF inválido!');
-        } else if (valor.length > 11 && !validarCNPJ(valor)) {
+        } else if (valorSemPontuacao.length === 14 && !validarCNPJ(valor)) {
             e.preventDefault();
             exibirAlerta('CNPJ inválido!');
+        } else if (valorSemPontuacao.length !== 11 && valorSemPontuacao.length !== 14) {
+            e.preventDefault();
+            exibirAlerta('O valor informado não é um CPF nem um CNPJ válido!');
         }
     }
 });
