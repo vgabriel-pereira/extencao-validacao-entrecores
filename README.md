@@ -28,7 +28,6 @@ Esta extensão de navegador foi desenvolvida para o site [Entre-COREs](https://e
 ├── background.js         # (Opcional) Arquivo para futuras funcionalidades em segundo plano
 ├── script.js             # Lógica de validação e exibição de alertas
 ├── popup.html            # Interface do popup da extensão (se aplicável)
-└── icons/                # Ícones utilizados na extensão
 ```
 
 ---
@@ -70,14 +69,3 @@ Este projeto é de uso interno e não possui uma licença pública atrelada. Ent
 📞 Telefone: (61) 99225-1984  
 
 ---
-
-## 🚀 Demonstração Visual
-> "Atenção: CPF inválido!"  
-![Exemplo de alerta vermelho fixo com botão OK](./icons/exemplo-alerta.png)
-<<<<<<< HEAD
-
----
-
-
-=======
->>>>>>> origin
